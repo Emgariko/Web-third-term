@@ -1,0 +1,17 @@
+curl 'http://1d3p.wp.codeforces.com/new' \
+  -H 'Connection: keep-alive' \
+  -H 'Cache-Control: max-age=0' \
+  -H 'Upgrade-Insecure-Requests: 1' \
+  -H 'Origin: http://1d3p.wp.codeforces.com' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 Safari/537.36' \
+  -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9' \
+  -H 'Referer: http://1d3p.wp.codeforces.com/' \
+  -H 'Accept-Language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7' \
+  -H 'Cookie: __utmc=71512449; __utmz=71512449.1596581348.7.6.utmcsr=away.vk.com|utmccn=(referral)|utmcmd=referral|utmcct=/; evercookie_cache=bhe6pr86rxwnf3edn2; evercookie_etag=bhe6pr86rxwnf3edn2; evercookie_png=bhe6pr86rxwnf3edn2; 70a7c28f3de=bhe6pr86rxwnf3edn2; __utma=71512449.615939875.1593532841.1598041341.1599829170.11; __utmt=1; __utmb=71512449.5.10.1599829170; JSESSIONID=EC9F1CE6463825967F6C20E18ED5C694' \
+  --data-raw '_af=34be50b38beccce4&proof=225&amount=15&submit=Submit' \
+  --compressed \
+  --insecure ;
+  
+  curl 'http://1d3p.wp.codeforces.com/new'     -H 'Connection: keep-alive'     -H 'Cache-Control: max-age=0'     -H 'Upgrade-Insecure-Requests: 1'     -H 'Origin: http://1d3p.wp.codeforces.com'     -H 'Content-Type: application/x-www-form-urlencoded'     -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 Safari/537.36'     -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'     -H 'Referer: http://1d3p.wp.codeforces.com/'     -H 'Accept-Language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'     -H 'Cookie: __utmc=71512449; __utmz=71512449.1596581348.7.6.utmcsr=away.vk.com|utmccn=(referral)|utmcmd=referral|utmcct=/; evercookie_cache=bhe6pr86rxwnf3edn2; evercookie_etag=bhe6pr86rxwnf3edn2; evercookie_png=bhe6pr86rxwnf3edn2; 70a7c28f3de=bhe6pr86rxwnf3edn2; __utma=71512449.615939875.1593532841.1598041341.1599829170.11; __utmt=1; __utmb=71512449.5.10.1599829170; JSESSIONID=EC9F1CE6463825967F6C20E18ED5C694'     --data-raw '_af=34be50b38beccce4&proof=225&amount=15&submit=Submit'     --compressed     --insecure ;
+
