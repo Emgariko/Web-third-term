@@ -47,6 +47,7 @@
                 $tr.find(".user_id").text(user["id"]);
                 $tr.find(".user_login").text(user["login"]);
                 $tr.find(".user_admin .value").text(user["admin"] ? "true" : "false");
+                $tr.find("tr").attr("data-userId", user["id"]);
                 $tr.find(".user_admin .ref").attr("href", "#");
                 $tr.find(".user_admin .ref").text(user["admin"] ? "disable" : "enable");
                 $tr.find(".user_admin .ref").attr("userId", user["id"]);
@@ -62,7 +63,8 @@
                 const buttonValue = $ref.text();
                 ajax($(this), null, null, null,
                     {
-                        action: "setAdmin", userId: id,
+                        action: "setAdmin",
+                        userId: id,
                         buttonValue: buttonValue
                     },
                     function (response) {
@@ -72,7 +74,7 @@
                     }
                 );
                 return false;
-            });
+            })
             $(".users tr").click(function() {
                 ajax($(this), null, null, null,
                     {
@@ -85,67 +87,5 @@
                 );
             });
         });
-
-        /*$(function () {
-            const $noData = $(".users .noData");
-            $noData.find("td").text("Loading...");
-            $.ajax({
-                dataType: "json",
-                data: {
-                    action: "findAll"
-                },
-                success: function(response) {
-                    response["users"].forEach(function(user) {
-                        $noData.hide();
-                        const $tr = $($(".users template").prop("content")).clone();
-                        $tr.find(".user_id").text(user["id"]);
-                        $tr.find(".user_login").text(user["login"]);
-                        $tr.find(".user_admin .value").text(user["admin"] ? "true" : "false");
-                        $tr.find(".user_admin .ref").attr("href", "#");
-                        $tr.find(".user_admin .ref").text(user["admin"] ? "disable" : "enable");
-                        $tr.find(".user_admin .ref").attr("userId", user["id"]);
-                        $tr.find(".user_admin .ref").attr("value", user["admin"]);
-                        $(".users tbody").append($tr);
-                    });
-                    $(".users .user_admin").click(function () {
-                        const $ref = $(this).find(".ref");
-                        const $value = $(this).find(".value");
-                        const $adminValue = $(this).find(".ref .value");
-                        const $link = $(this).find(".ref");
-                        const id = $ref.attr("userId");
-                        const buttonValue = $ref.text();
-                        $.ajax({
-                            dataType: "json",
-                            data: {
-                                action: "setAdmin",
-                                userId: id,
-                                buttonValue: buttonValue
-                            },
-                            success: function (response) {
-                                $value.text(response["buttonValue"] === "disable" ? "true" : "false");
-                                $adminValue.attr("value", ($adminValue === "true" ? "false" : "true"));
-                                $link.text(response["buttonValue"]);
-                            },
-                            type: "POST"
-                        })
-                        return false;
-                    });
-                    $(".users tr").click(function() {
-                        $.ajax({
-                            dataType: "json",
-                            data: {
-                                action: "findUser",
-                                userId: $(this).attr("data-userId")
-                            },
-                            success: function (response) {
-                                notify(response["user"].creationTime);
-                            },
-                            type: "POST"
-                        })
-                    });
-                },
-                type: "POST"
-            });
-        }*/
     </script>
 </@c.page>

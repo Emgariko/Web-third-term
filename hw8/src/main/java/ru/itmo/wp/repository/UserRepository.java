@@ -20,4 +20,13 @@ public interface UserRepository extends JpaRepository<User, Long> {
     User findByLoginAndPassword(String login, String password);
 
     List<User> findAllByOrderByIdDesc();
+
+    /*@Modifying
+    @Query("UPDATE Company c SET c.address = :address WHERE c.id = :companyId")
+    int updateAddress(@Param("companyId") int companyId, @Param("address") String address);
+*/
+    @Transactional
+    @Modifying
+    @Query(value = "UPDATE user SET status= :status WHERE id= :userId", nativeQuery = true)
+    void updateStatus(Long userId, boolean status);
 }

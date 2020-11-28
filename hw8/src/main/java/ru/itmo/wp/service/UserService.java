@@ -38,4 +38,8 @@ public class UserService {
     public List<User> findAll() {
         return userRepository.findAllByOrderByIdDesc();
     }
+
+    public void updateStatus(Long id, Boolean status) {
+        userRepository.updateStatus(id, status);
+    }
 }

@@ -1,4 +1,5 @@
 <#-- @ftlvariable name="users" type="ru.itmo.wp.domain.User[]" -->
+
 <#import "commons.ftlh" as c>
 
 <@c.page>
@@ -28,9 +29,12 @@
                     <td class="creationTime">${user.creationTime}</td>
                     <td class="action">
                         <form method="post" action="setStatus">
-                            <input type="hidden" name=""
+                            <#assign curAction = user.getStatus()?then("disable", "enable")/>
+                            <input type="hidden" name="action" value=${curAction}>
+                            <input type="hidden" name="userId" value="${user.getId()}">
                             <div class="button-field">
-                                <input id="user" type="submit" value="enable"/>
+                                <input id="userStatusButton"
+                                       type="submit" value="${curAction?capitalize}"/>
                             </div>
                         </form>
                     </td>

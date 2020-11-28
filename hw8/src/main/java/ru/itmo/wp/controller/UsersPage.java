@@ -6,12 +6,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import ru.itmo.wp.form.UserCredentials;
+import ru.itmo.wp.form.UserStatusChangeForm;
 import ru.itmo.wp.service.UserService;
 
 import javax.servlet.http.HttpSession;
 
 @Controller
 public class UsersPage extends Page {
+    private final String ENABLE_ACTION_NAME = "enable";
     private final UserService userService;
 
     public UsersPage(UserService userService) {
@@ -19,9 +21,19 @@ public class UsersPage extends Page {
     }
 
     @PostMapping("/users/setStatus")
-    public String setStatus(@ModelAttribute("userForm") UserCredentials userForm, HttpSession httpSession) {
-        System.out.println(1);
-        return "UsersPage";
+    public String setStatus(@ModelAttribute("userStatusChangeForm") UserStatusChangeForm userStatusChangeForm, HttpSession httpSession) {
+        if (!getUser(httpSession).getStatus()) {
+            putError(httpSession, "Your account was disabled");
+            return "redirect:/users/all";
+        }
+        Long userId = userStatusChangeForm.getUserId();
+        String action = userStatusChangeForm.getAction();
+        if (userId.equals(getUser(httpSession).getId()) && !action.equals(ENABLE_ACTION_NAME)) {
+            putError(httpSession, "You can not disable your own account");
+            return "redirect:/users/all";
+        }
+        userService.updateStatus(userId, action.equals(ENABLE_ACTION_NAME));
+        return "redirect:/users/all";
     }
 
     @GetMapping("/users/all")

@@ -1,4 +1,4 @@
-<#-- @ftlvariable name="error" type="java.lang.String" -->
+<#-- @ftlvariable name="myError" type="java.lang.String" -->
 <#-- @ftlvariable name="notices" type="ru.itmo.wp.domain.Notice[]" -->
 <#-- @ftlvariable name="user" type="ru.itmo.wp.domain.User" -->
 <#-- @ftlvariable name="message" type="java.lang.String" -->
@@ -71,8 +71,8 @@
         <#if message??>
             $.notify("${message?js_string}", {className: "success", position: "bottom right"});
         </#if>
-        <#if error??>
-            $.notify("${error?js_string}", {className: "error", position: "bottom right"});
+        <#if myError??>
+            $.notify("${myError?js_string}", {className: "error", position: "bottom right"});
         </#if>
     })
 </script>

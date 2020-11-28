@@ -13,7 +13,7 @@ import java.util.List;
 public class Page {
     private static final String USER_ID_SESSION_KEY = "userId";
     private static final String MESSAGE_SESSION_KEY = "message";
-    private static final String ERROR_SESSION_KEY = "error";
+    private static final String ERROR_SESSION_KEY = "myError";
 
     @Autowired
     private UserService userService;
@@ -35,6 +35,13 @@ public class Page {
         String message = (String) httpSession.getAttribute(MESSAGE_SESSION_KEY);
         httpSession.removeAttribute(MESSAGE_SESSION_KEY);
         return message;
+    }
+
+    @ModelAttribute("myError")
+    public String getError(HttpSession httpSession) {
+        String error = (String) httpSession.getAttribute(ERROR_SESSION_KEY);
+        httpSession.removeAttribute(ERROR_SESSION_KEY);
+        return error;
     }
 
     void setUser(HttpSession httpSession, User user) {
