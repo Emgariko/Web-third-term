@@ -25,6 +25,8 @@ public class User {
     @CreationTimestamp
     private Date creationTime;
 
+    @NotNull
+    @Column(columnDefinition = "boolean default true")
     private boolean status;
 
     public boolean getStatus() {

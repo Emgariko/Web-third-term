@@ -43,7 +43,7 @@ public class Page {
         httpSession.removeAttribute(ERROR_SESSION_KEY);
         return error;
     }
-
+    
     void setUser(HttpSession httpSession, User user) {
         if (user != null) {
             httpSession.setAttribute(USER_ID_SESSION_KEY, user.getId());

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import ru.itmo.wp.domain.User;
 import ru.itmo.wp.service.UserService;
-
+    
 @Controller
 public class UserPage extends Page{
     private final UserService userService;

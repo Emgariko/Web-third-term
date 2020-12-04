@@ -28,7 +28,6 @@ public class UserCredentialsEnterValidator implements Validator {
             } else if (!user.getStatus()) {
                 errors.rejectValue("login", "status.invalid", "User is disabled");
             }
-                //:TODO: show AJAX error when user trying to access only-logged-usersPage
         }
     }
 }
