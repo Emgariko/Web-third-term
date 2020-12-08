@@ -17,7 +17,7 @@
                         <div class="value">
                             <textarea id="text" name="text"><#--${post.text!}--></textarea>
                         </div>
-<#--                        <@c.error "post.text"/>-->
+                        <@c.error "commentForm.text"/>
                     </div>
                     <div class="button-field">
                         <input type="submit" value="Write">
@@ -30,7 +30,5 @@
                 <p>Comment by ${comment.getUser().getLogin()}: ${comment.getText()}</p>
             </#list>
         </div>
-    <#else>
-        No such post.
     </#if>
 </@c.page>

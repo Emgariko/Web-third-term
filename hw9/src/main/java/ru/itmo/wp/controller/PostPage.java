@@ -15,6 +15,7 @@ import ru.itmo.wp.service.PostService;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.Objects;
 
 @Controller
 public class PostPage extends Page {
@@ -25,11 +26,13 @@ public class PostPage extends Page {
     }
 
     @PostMapping("/post/writeComment")
-    private String writeComment(@Valid @ModelAttribute("commentForm") PostCommentForm postCommentForm, BindingResult bindingResult, HttpSession httpSession) {
-        if (bindingResult.hasErrors()) {
+    private String writeComment(@Valid @ModelAttribute("commentForm") PostCommentForm postCommentForm, BindingResult bindingResult, Model model, HttpSession httpSession) {
+        Post post = postService.findById(postCommentForm.getPostId());
+        if (bindingResult.hasErrors()) { // I'm sure that errors can be only in text-field.
+            model.addAttribute("curPost", post);
+            model.addAttribute("comments", postService.findById(postCommentForm.getPostId()).getComments());
             return "PostPage";
         }
-        Post post = postService.findById(postCommentForm.getPostId());
         Comment comment = new Comment();
         comment.setText(postCommentForm.getText());
         comment.setUser(getUser(httpSession));

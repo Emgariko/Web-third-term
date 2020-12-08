@@ -11,13 +11,14 @@
                 <form method="post" action="writeComment">
                     <div class="field">
                         <input type="hidden" name="postId" value="${curPost.getId()}">
+<#--                        <input type="hidden" name="postId" value="hyu">-->
                         <div class="name">
                             <label for="text">Text</label>
                         </div>
                         <div class="value">
                             <textarea id="text" name="text"><#--${post.text!}--></textarea>
                         </div>
-<#--                        <@c.error "post.text"/>-->
+                        <@c.error "commentForm.text"/>
                     </div>
                     <div class="button-field">
                         <input type="submit" value="Write">
@@ -30,7 +31,5 @@
                 <p>Comment by ${comment.getUser().getLogin()}: ${comment.getText()}</p>
             </#list>
         </div>
-    <#else>
-        No such post.
     </#if>
 </@c.page>
