@@ -1,3 +1,4 @@
+<#-- @ftlvariable name="tag.name" type="java.lang.String" -->
 <#-- @ftlvariable name="user" type="ru.itmo.wp.domain.User" -->
 <#-- @ftlvariable name="message" type="java.lang.String" -->
 <#-- @ftlvariable name="myError" type="java.lang.String" -->
@@ -101,9 +102,17 @@
         <div class="information">By ${post.user.login}, ${post.creationTime}</div>
         <div class="body">${post.text}</div>
         <ul class="attachment">
-            <li>Announcement of <a href="#">Codeforces Round #510 (Div. 1)</a></li>
-            <li>Announcement of <a href="#">Codeforces Round #510 (Div. 2)</a></li>
+            <li>Announcement of <a href="#">Codeforces Round #XYZ (Div. 1)</a></li>
+            <li>Announcement of <a href="#">Codeforces Round #XYZ (Div. 2)</a></li>
         </ul>
+        <div class="tags">
+            <#assign tags=post.getTags()/>
+            <#list tags as tag>
+                <div class="tag">
+                    ${tag.name}
+                </div>
+            </#list>
+        </div>
         <div class="footer">
             <div class="left">
                 <img src="<@spring.url '/img/voteup.png'/>" title="Vote Up" alt="Vote Up"/>
@@ -114,7 +123,7 @@
                 <img src="<@spring.url '/img/date_16x16.png'/>" title="Publish Time" alt="Publish Time"/>
                 ${post.creationTime}
                 <img src="<@spring.url '/img/comments_16x16.png'/>" title="Comments" alt="Comments"/>
-                <a href="#">68</a>
+                <a href="#">${post.comments?size}</a>
             </div>
         </div>
     </article>

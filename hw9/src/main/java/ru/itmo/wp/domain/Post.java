@@ -33,10 +33,19 @@ public class Post {
     private String text;
 
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    @OrderBy("creationTime")
     private List<Comment> comments;
 
     @CreationTimestamp
     private Date creationTime;
+
+    @ManyToMany
+    @JoinTable(name = "post_tag",
+            joinColumns = @JoinColumn(name = "post_id"),
+            inverseJoinColumns = @JoinColumn(name = "tag_id")
+    )
+    @OrderBy("name")
+    private List<Tag> tags;
 
     public long getId() {
         return id;
@@ -82,8 +91,17 @@ public class Post {
         this.creationTime = creationTime;
     }
 
+    public List<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
+    }
+
     public void addComment(Comment comment) {
         comment.setPost(this);
         comments.add(comment);
     }
+
 }

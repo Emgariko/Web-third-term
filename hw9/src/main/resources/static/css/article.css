@@ -82,3 +82,12 @@ main article .title a:visited
     text-decoration: none;
     color: var(--caption-color);
 }
+
+main article .tags .tag {
+    color: var(--tag-color);
+    display: inline-block;
+    border-radius: var(--tag-border-radius);
+    border: 1px solid var(--tag-border-color);
+    padding: 1px;
+    margin: 1px;
+}

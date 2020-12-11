@@ -5,27 +5,28 @@
 <@c.page>
     <#if curPost??>
         <@c.post curPost/>
-        <div class="form">
-            <div class="header">Write Comment</div>
-            <div class="body">
-                <form method="post" action="writeComment">
-                    <div class="field">
-                        <input type="hidden" name="postId" value="${curPost.getId()}">
-<#--                        <input type="hidden" name="postId" value="hyu">-->
-                        <div class="name">
-                            <label for="text">Text</label>
+        <#if user??>
+            <div class="form">
+                <div class="header">Write Comment</div>
+                <div class="body">
+                    <form method="post" action="writeComment">
+                        <div class="field">
+                            <input type="hidden" name="postId" value="${curPost.getId()}">
+                            <div class="name">
+                                <label for="text">Text</label>
+                            </div>
+                            <div class="value">
+                                <textarea id="text" name="text"><#--${post.text!}--></textarea>
+                            </div>
+                            <@c.error "commentForm.text"/>
                         </div>
-                        <div class="value">
-                            <textarea id="text" name="text"><#--${post.text!}--></textarea>
+                        <div class="button-field">
+                            <input type="submit" value="Write">
                         </div>
-                        <@c.error "commentForm.text"/>
-                    </div>
-                    <div class="button-field">
-                        <input type="submit" value="Write">
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
-        </div>
+        </#if>
         <div class="comments">
             <#list comments as comment>
                 <p>Comment by ${comment.getUser().getLogin()}: ${comment.getText()}</p>
