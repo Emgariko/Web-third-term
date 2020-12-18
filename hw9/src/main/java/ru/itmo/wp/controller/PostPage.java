@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import ru.itmo.wp.domain.Comment;
 import ru.itmo.wp.domain.Post;
+import ru.itmo.wp.domain.Role;
 import ru.itmo.wp.form.PostCommentForm;
+import ru.itmo.wp.security.AnyRole;
 import ru.itmo.wp.security.Guest;
 import ru.itmo.wp.service.PostService;
 
@@ -25,6 +27,7 @@ public class PostPage extends Page {
         this.postService = postService;
     }
 
+    @AnyRole({Role.Name.WRITER, Role.Name.ADMIN})
     @PostMapping("/post/writeComment")
     private String writeComment(@Valid @ModelAttribute("commentForm") PostCommentForm postCommentForm, BindingResult bindingResult, Model model, HttpSession httpSession) {
         Post post = postService.findById(postCommentForm.getPostId());

@@ -123,7 +123,7 @@
                 <img src="<@spring.url '/img/date_16x16.png'/>" title="Publish Time" alt="Publish Time"/>
                 ${post.creationTime}
                 <img src="<@spring.url '/img/comments_16x16.png'/>" title="Comments" alt="Comments"/>
-                <a href="#">${post.comments?size}</a>
+                <a href="/post/${post.getId()}">${post.comments?size}</a>
             </div>
         </div>
     </article>
