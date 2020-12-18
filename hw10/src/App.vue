@@ -28,18 +28,15 @@ export default {
         userCount : function() {
             return Object.values(this.users).length
         }
-    }
-    ,
+    },
     beforeCreate() {
         this.$root.$on("onRegister", (login, name) => {
             if (login.length < 3 || login.length > 16 || !(/^([a-z]*)$/.test(login))) {
                 this.$root.$emit("onRegisterValidationError", "Login should be 3-16 length latin lowercase string");
-            }
-            const filteredUsers = Object.values(this.users).filter(u => u.login === login);
-            if (filteredUsers.length !== 0) {
+            } else if (Object.values(this.users).filter(u => u.login === login).length !== 0) {
                 this.$root.$emit("onRegisterValidationError", "Login is already in use");
             } else {
-                const id = Math.max(...Object.keys(this.posts)) + 1;
+                const id = Math.max(...Object.keys(this.users)) + 1;
                 this.$root.$set(this.users, id, {
                     id, login, name, admin: false
                 });

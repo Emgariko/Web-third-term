@@ -10,11 +10,6 @@
                 </tr>
             </thead>
             <tbody>
-<!--            <tr class="noData">-->
-<!--                <td colspan="3">-->
-<!--                    No data-->
-<!--                </td>-->
-<!--            </tr>-->
             <tr v-for="user in users" :key="user.id">
                 <td class="id"> {{ user.id }} </td>
                 <td class="login"> {{ user.login }} </td>

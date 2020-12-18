@@ -5,13 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e9c0ea9-8a6f-42fb-8940-72e05bcb2ab7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/middle/Register.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/middle/Users.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hw9/src/main/java/ru/itmo/wp/controller/PostPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hw9/src/main/java/ru/itmo/wp/controller/PostPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hw9/src/main/resources/templates/commons.ftlh" beforeDir="false" afterPath="$PROJECT_DIR$/../hw9/src/main/resources/templates/commons.ftlh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hw9/target/classes/ru/itmo/wp/controller/PostPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/../hw9/target/classes/ru/itmo/wp/controller/PostPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hw9/target/classes/ru/itmo/wp/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../hw9/target/classes/ru/itmo/wp/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hw9/target/classes/templates/commons.ftlh" beforeDir="false" afterPath="$PROJECT_DIR$/../hw9/target/classes/templates/commons.ftlh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/middle/Post.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Middle.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Middle.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/middle/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/middle/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/middle/Users.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/middle/Users.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sidebar/SidebarPost.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidebar/SidebarPost.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +67,8 @@
       <option name="presentableId" value="Default" />
       <updated>1608230830121</updated>
       <workItem from="1608230833260" duration="13348000" />
-      <workItem from="1608246965301" duration="2508000" />
+      <workItem from="1608246965301" duration="2664000" />
+      <workItem from="1608284570962" duration="18720000" />
     </task>
     <servers />
   </component>
